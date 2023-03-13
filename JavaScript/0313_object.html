@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체</title>
+  <table>
+    <tr>
+      <td id="title"></td>
+      <td id="price"></td>
+      <td id="stock"></td>
+    </tr>
+  </table>
+</head>
+<body>
+  <script>
+    //let sample={title:'자바 공부',price:3500,stock:4};
+    let sample={
+      title:'자바 공부',
+      price:3500,
+      stock:4
+    };
+    console.log(sample);
+    console.log(sample.title);
+    sample.stock=10; //sample 데이터 변경
+    console.log(sample.stock);
+    
+    for(let a in sample){ // for in문 
+      console.log(a+'='+sample[a]);
+    }
+    document.getElementById('title').textContent=sample.title;
+    document.getElementById('price').textContent=sample.price+'원';
+    document.getElementById('stock').textContent=sample.stock;
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘 수업시간에도 배웠던 input!</title>
+  <section>
+    <form action="#" id="form"> <!-- #은 현재 페이지라는 뜻으로 새로고침한 것과 같은 상태가 된다 -->
+      <input type="text" name="word">
+      <input type="submit" value="검색"> <!-- value값이 없으면 '제출'버튼 -->
+    </form> 
+    <p id="output"></p>
+  </section>
+</head>
+<body> 
+  <script>
+    document.getElementById('form').onsubmit=function(){ //onsubmit이벤트: 이벤트가 발생했을 때 실행하고 싶은 처리를 작성| onsubmit은 <input type="submit">이 아닌 부모 요소인 <form>에서 발생했다
+      let search=document.getElementById('form').word.value;
+      document.getElementById('output').textContent='('+search+')검색중~';
+      return false;
+    }
+  </script>
+</body>
+</html>

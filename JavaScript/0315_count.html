@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카운트다운</title>
+</head>
+<body>
+  <p>3월 16일이 되기전까지<span id="timer"></span> 남았습니다.</p>
+  <script>
+    let countdown=function(due){
+      let now=new Date();
+      let rest=due.getTime()-now.getTime();
+      let sec=Math.floor(rest/1000%60);
+      let min=Math.floor(rest/1000/60)%60;
+      let hours=Math.floor(rest/1000/60/60)%24;
+      let days=Math.floor(rest/1000/60/60/24);
+      let count=[days,hours,min,sec];
+      return count;
+    }
+
+    let goal=new Date();
+    goal.setHours(23);
+    goal.setMinutes(59);
+    goal.setSeconds(59);
+    console.log(countdown(goal));
+    // 추가 작성
+    let recalc=function(){
+      let counter=countdown(goal);
+      let time=counter[1]+'시간'+counter[2]+'분'+counter[3]+'초';
+      document.getElementById('timer').textContent=time;
+      refresh();
+    }
+    let refresh=function(){
+      //setTmeout 메서드는 대기 시간 후에 함수를 한 번만 실행하는 메서드이다
+      setTimeout(recalc,1000); //()가 없는 이유는 ()를 붙이면 해당 함수, 메서드가 바로 실행이 되어버리기 때문이다
+    }
+    recalc();  //여기에는 ()가 있는데
+  </script>
+</body>
+</html>

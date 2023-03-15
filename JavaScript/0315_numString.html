@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>숫자를 문자열로 변환</title>
+</head>
+<body>
+  <script>
+    let addZero=function(num,digit){
+      let numString=String(num);
+      while(numString.length<digit){
+        numString='0'+numString;
+      }
+      return numString;
+    }
+    console.log(addZero(17,3));//숫자 17을 세자릿수로 변경
+  </script>
+</body>
+</html>

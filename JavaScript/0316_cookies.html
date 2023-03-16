@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설문지</title>
+</head>
+<body>
+  <section>
+    <p>좋아하는 음악은?</p>
+    <form id="form" action="0316_respond.html">
+      <input type="radio" name="frequency">재즈<br>
+      <input type="radio" name="frequency">가요<br>
+      <input type="radio" name="frequency">팝송<br>
+      <input type="radio" name="frequency">ost<br>
+      <input type="submit"name="전송"id="submit"><br>
+    </form>
+    <button id="remove">쿠키 삭제</button>
+  </section>
+  <script src="./0316_js.cookie.js"></script>
+  <script>
+    document.getElementById('form').onsubmit=function(){
+      if(Cookies.get('answered')==='yes'){
+        window.alert('이미 응답했습니다. 설문지 응답은 한 번만 가능합니다.');
+        return fale;
+      }else{
+        Cookies.set('answered','yes',{expires:7});
+      }
+    }
+    document.getElementById('remove').onclick=function(){
+      Cookies.remove('answered');
+    };
+  </script>
+</body>
+</html>

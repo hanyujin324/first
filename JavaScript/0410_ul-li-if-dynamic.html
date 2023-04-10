@@ -4,19 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>동적으로 li만들기</title>
+  <title>동적으로 색 변경</title>
 </head>
 <body>
   <script>
     let ulMaker=document.createElement('ul');
     document.body.appendChild(ulMaker);
     ulMaker.setAttribute('id','menu');
-    // li만들기
-    for(let i=1;i<6;i++){
+    let menu=document.getElementById('menu')
+        // li만들기
+        for(let i=1;i<6;i++){
       let liMaker=document.createElement('li');
-      document.body.appendChild(liMaker); //document.body를 ulMaker로 바꾸기
+      menu.appendChild(liMaker);
       liMaker.textContent=`items-${i}`;
-      liMaker.style.color='green'
+    }
+    console.dir(menu);
+    //if문으로 li-2 색상 변경
+    for(let index=0;index<menu.children.length;index++){
+      if(index===2){
+        menu.children[index].style.color='green'
+      }else{
+        menu.children[index].style.color='red'
+      }
     }
   </script>
 </body>
